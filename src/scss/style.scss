@@ -1,0 +1,56 @@
+@import "vars";
+@import "fonts";
+@import "btns";
+@import "callback";
+@import "contacts";
+@import "aside";
+@import "header";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: $mainFont, sans-serif;
+  font-size: 1.6rem;
+}
+
+.link-hover {
+  position: relative;
+  &::before {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: $mainColor;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    transition: width .3s linear;
+  }
+  &::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: $mainColor;
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    transition: width .3s linear;
+  }
+  &:hover::before, &:hover::after{
+    width: 50%;
+  }
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+}
