@@ -99,13 +99,17 @@ __webpack_require__.r(__webpack_exports__);
 var Burger = function Burger() {
   var openBurgerBtn = document.querySelector('.header__burger');
   var closeBurgerBtn = document.querySelector('.aside__close');
-  var burgerMenu = document.querySelector('.aside');
   var sidebar = document.querySelector('.sidebar');
   openBurgerBtn.addEventListener('click', function () {
-    burgerMenu.classList.add('aside--active');
+    sidebar.classList.add('sidebar--active');
   });
   closeBurgerBtn.addEventListener('click', function () {
-    burgerMenu.classList.remove('aside--active');
+    sidebar.classList.remove('sidebar--active');
+  });
+  sidebar.addEventListener('click', function (event) {
+    if (!event.target.closest('aside')) {
+      sidebar.classList.remove('sidebar--active');
+    }
   });
 };
 
