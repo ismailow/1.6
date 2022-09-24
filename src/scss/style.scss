@@ -2,6 +2,7 @@
 @import "fonts";
 @import "btns";
 @import "callback";
+@import "feedback";
 @import "contacts";
 @import "aside";
 @import "header";
@@ -21,6 +22,10 @@ html {
 body {
   font-family: $mainFont, sans-serif;
   font-size: 1.6rem;
+}
+
+.container {
+  padding: 0 16px;
 }
 
 .link-hover {
@@ -50,7 +55,7 @@ body {
   }
 }
 
-.wrapper {
+.content {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }

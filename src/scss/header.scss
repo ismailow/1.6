@@ -1,3 +1,55 @@
 .header {
+  border-bottom: 1px solid $accentColor;
+  &__inner {
+    padding: 18px 0;
+    display: flex;
+    align-items: center;
+  }
+  &__burger {
+    margin-right: 16px;
+  }
+  &__burger-line {
+    width: 10px;
+    height: 2px;
+    background-color: #FFF;
+    position: relative;
+    left: -5px;
+    &::before {
+      content: "";
+      width: 18px;
+      height: 2px;
+      background-color: #FFF;
+      position: absolute;
+      top: -7px;
+      left: 0;
+    }
+    &::after {
+      content: "";
+      width: 18px;
+      height: 2px;
+      background-color: #FFF;
+      position: absolute;
+      top: 7px;
+      left: 0;
+    }
+  }
+  &__feedback {
+    margin-left: auto;
+  }
+  &__callback {
+    display: none;
+  }
+}
 
+@media (min-width: 768px) {
+  .header {
+    &__feedback {
+      margin: 0;
+    }
+    &__callback {
+      display: flex;
+      margin-right: 42px;
+      margin-left: auto;
+    }
+  }
 }

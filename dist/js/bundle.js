@@ -86,6 +86,31 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/burger.js":
+/*!**************************!*\
+  !*** ./src/js/burger.js ***!
+  \**************************/
+/*! exports provided: Burger */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Burger", function() { return Burger; });
+var Burger = function Burger() {
+  var openBurgerBtn = document.querySelector('.header__burger');
+  var closeBurgerBtn = document.querySelector('.aside__close');
+  var burgerMenu = document.querySelector('.aside');
+  var sidebar = document.querySelector('.sidebar');
+  openBurgerBtn.addEventListener('click', function () {
+    burgerMenu.classList.add('aside--active');
+  });
+  closeBurgerBtn.addEventListener('click', function () {
+    burgerMenu.classList.remove('aside--active');
+  });
+};
+
+/***/ }),
+
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
@@ -97,7 +122,10 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/style.scss */ "./src/scss/style.scss");
 /* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./burger */ "./src/js/burger.js");
 
+
+Object(_burger__WEBPACK_IMPORTED_MODULE_1__["Burger"])();
 
 /***/ }),
 
