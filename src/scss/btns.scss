@@ -14,3 +14,32 @@
     background-color: #e11d58;
   }
 }
+
+.more-btn {
+  border: none;
+  background-color: transparent;
+  font-size: 1.6rem;
+  line-height: calc(24 / 16);
+  cursor: pointer;
+  &__img {
+    margin-right: 8px;
+  }
+  &:hover &__img {
+    animation-name: moreBtn;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes moreBtn {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}

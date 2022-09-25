@@ -1,0 +1,134 @@
+.services {
+  padding-top: 24px;
+  &__title {
+    margin-bottom: 24px;
+  }
+  &__nav {
+    margin-right: -16px;
+  }
+  &__list {
+    display: flex;
+    gap: 10px;
+    margin-right: -776px;
+    width: 100%;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &::after {
+      content: "";
+      width: 35px;
+      height: 40px;
+      display: block;
+      position: absolute;
+      right: 0;
+      background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+    }
+  }
+  &__item {
+    list-style: none;
+  }
+  &__link {
+    padding: 8px 22px;
+    background-color: transparent;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #7E7E82;
+    white-space: nowrap;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: border .3s linear;
+    &:hover {
+      border: 2px solid #7E7E82;
+    }
+    &--active {
+      background-color: #FFF;
+      border: 2px solid #B8FFEC;
+      border-radius: 6px;
+    }
+  }
+  &__text-block {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height .3s linear;
+    font-size: 14px;
+    line-height: calc(20 / 14);
+    margin-bottom: 16px;
+    &--active {
+      max-height: 100%;
+    }
+  }
+  &__text:not(:last-child) {
+    margin-bottom: 24px;
+  }
+  &__more {
+    margin-bottom: 16px;
+  }
+  &__img {
+    margin: 0 -16px;
+  }
+  &__image {
+    width: 100%;
+  }
+}
+
+@media (min-width: 600px) {
+  .services {
+    &__info {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__text-block {
+      width: 290px;
+    }
+    &__img {
+      margin: 0;
+      width: 290px;
+    }
+    &__image {
+      border-radius: 6px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .services {
+    &__text-block {
+      width: 312px;
+    }
+    &__img {
+      margin: 0;
+      width: 360px;
+    }
+    //&__text-block {
+    //  max-height: 100%;
+    //}
+  }
+}
+
+@media (min-width: 950px) {
+  .services {
+    &__text-block {
+      min-width: 430px;
+    }
+    &__img {
+      min-width: 430px;
+    }
+  }
+}
+
+@media (min-width: 1152px) {
+  .services {
+    &__text-block {
+      width: 490px;
+    }
+    &__img {
+      width: 550px;
+    }
+  }
+}

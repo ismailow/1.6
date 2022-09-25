@@ -7,11 +7,9 @@
   height: 100vh;
   transform: translateX(-1000px);
   transition: .3s linear;
-
   &--active {
     position: fixed;
     left: 0;
-    display: block;
     transform: translateX(0);
   }
 }
@@ -30,6 +28,9 @@
   }
   &__close {
     margin-right: 16px;
+    @media (min-width: 1440px) {
+      display: none;
+    }
   }
   &__search {
     margin-left: auto;
@@ -99,5 +100,18 @@
   .aside {
     max-width: 320px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@media (min-width: 1440px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    transform: translateX(0);
+    background: none;
+    width: 320px;
+  }
+  .aside {
+    box-shadow: none;
   }
 }

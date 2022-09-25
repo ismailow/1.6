@@ -127,9 +127,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/style.scss */ "./src/scss/style.scss");
 /* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./burger */ "./src/js/burger.js");
+/* harmony import */ var _more__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./more */ "./src/js/more.js");
+/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sidebar */ "./src/js/sidebar.js");
+
+
 
 
 Object(_burger__WEBPACK_IMPORTED_MODULE_1__["Burger"])();
+Object(_more__WEBPACK_IMPORTED_MODULE_2__["showMore"])();
+Object(_sidebar__WEBPACK_IMPORTED_MODULE_3__["sidebar"])();
+
+/***/ }),
+
+/***/ "./src/js/more.js":
+/*!************************!*\
+  !*** ./src/js/more.js ***!
+  \************************/
+/*! exports provided: showMore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showMore", function() { return showMore; });
+var showMore = function showMore() {
+  var moreBtns = document.querySelectorAll('.more-btn');
+  moreBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var showAttr = btn.getAttribute('data-show');
+      var showElement = document.querySelector(".".concat(showAttr));
+      console.log(showElement);
+
+      if (showElement.classList.contains("".concat(showAttr, "--active"))) {
+        showElement.classList.remove("".concat(showAttr, "--active"));
+        btn.querySelector('span').textContent = 'Читать далее';
+        btn.querySelector('.more-btn__img').style.rotate = '0deg';
+      } else {
+        showElement.classList.add("".concat(showAttr, "--active"));
+        btn.querySelector('span').textContent = 'Скрыть';
+        btn.querySelector('.more-btn__img').style.rotate = '180deg';
+      }
+    });
+  });
+};
+
+/***/ }),
+
+/***/ "./src/js/sidebar.js":
+/*!***************************!*\
+  !*** ./src/js/sidebar.js ***!
+  \***************************/
+/*! exports provided: sidebar */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sidebar", function() { return sidebar; });
+var sidebar = function sidebar() {
+  var windowWidth = window.innerWidth;
+
+  var sidebarPos = function sidebarPos() {
+    if (window.innerWidth >= 1440) {
+      var containerLeft = document.querySelector('.services__container').getBoundingClientRect().left;
+
+      var _sidebar = document.querySelector('.sidebar');
+
+      _sidebar.style.left = "".concat(containerLeft - 320, "px");
+    }
+  };
+
+  sidebarPos();
+  window.addEventListener('resize', sidebarPos);
+};
 
 /***/ }),
 
