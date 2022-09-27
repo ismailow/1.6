@@ -1,5 +1,14 @@
 .services {
-  padding-top: 24px;
+  padding: 24px 0;
+  &__top {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__feedback {
+    display: none;
+  }
   &__title {
     margin-bottom: 24px;
   }
@@ -8,7 +17,7 @@
   }
   &__list {
     display: flex;
-    gap: 10px;
+    gap: 3px;
     margin-right: -776px;
     width: 100%;
     margin-bottom: 24px;
@@ -129,6 +138,18 @@
     }
     &__img {
       width: 550px;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .services {
+    &__feedback {
+      display: flex;
+      gap: 160px;
+      &:before {
+        display: none;
+      }
     }
   }
 }

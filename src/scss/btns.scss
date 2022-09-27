@@ -10,8 +10,37 @@
   cursor: pointer;
   transition: all .2s ease-in;
   z-index: 1;
+  position: relative;
   &:hover {
     background-color: #e11d58;
+  }
+  &--text--request:before {
+    content: "Оставить заявку";
+    width: 125px;
+    position: absolute;
+    right: 50px;
+    font-size: 1.6rem;
+    line-height: calc(24 / 16);
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color .3s linear;
+  }
+  &--text--request:hover:before {
+    border-bottom: 2px solid $mainColor;
+  }
+  &--text--status:before {
+    content: "Статус ремонта";
+    width: 125px;
+    position: absolute;
+    right: 50px;
+    font-size: 1.6rem;
+    line-height: calc(24 / 16);
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color .3s linear;
+  }
+  &--text--status:hover:before {
+    border-bottom: 2px solid $mainColor;
   }
 }
 
@@ -34,12 +63,55 @@
 
 @keyframes moreBtn {
   0% {
-    transform: translateY(-5px);
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(5px);
   }
   50% {
     transform: translateY(0);
   }
+  75% {
+    transform: translateY(-5px);
+  }
   100% {
-    transform: translateY(5px);
+    transform: translateY(0);
+  }
+}
+
+.more-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid $btnColor;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color .3s linear;
+  &__icon {
+    transition: filter .3s linear;
+  }
+  &:hover {
+    background-color: $btnColor;
+  }
+  &:hover &__icon {
+    filter: brightness(100);
+    animation-name: moreArrow;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes moreArrow {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
