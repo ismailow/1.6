@@ -12,6 +12,7 @@
 @import "technics";
 @import "prices";
 @import "footer";
+@import "modal";
 
 *,
 *::before,
@@ -29,15 +30,16 @@ body {
   font-family: $mainFont, sans-serif;
   font-size: 1.6rem;
   background-color: #F8F8F8;
+  overflow-x: hidden;
 }
 
 .container {
   padding: 0 16px;
 }
 
-//.main {
-//  width: 100vw;
-//}
+.wrapper {
+  overflow: hidden;
+}
 
 .link-hover {
   position: relative;

@@ -855,6 +855,97 @@
     .footer__item--align--right {
       text-align: right; } }
 
+.modal {
+  position: absolute;
+  top: 0;
+  right: -100%;
+  z-index: 2000;
+  width: 100vw;
+  height: 100vh;
+  transition: right .3s linear;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow: hidden; }
+  .modal--active {
+    right: 0; }
+  .modal__body {
+    background-color: #fff;
+    height: 100vh;
+    padding: 24px 16px;
+    position: absolute;
+    right: 0; }
+  .modal__close {
+    margin-bottom: 20px; }
+  .modal__title {
+    font-size: 2.4rem;
+    line-height: calc(32 / 24);
+    margin-bottom: 24px; }
+    .modal__title::before {
+      position: absolute;
+      left: 0;
+      top: 77px;
+      content: "";
+      width: 4px;
+      height: 40px;
+      background-color: #41F6D7;
+      border-radius: 0 4px 4px 0; }
+  .modal__input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: 1px solid #EAEAEA;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-bottom: 16px; }
+    .modal__input--message {
+      padding-bottom: 87px; }
+    .modal__input:focus {
+      outline: 1px solid #41F6D7; }
+  .modal__disclaimer {
+    margin-bottom: 23px; }
+  .modal__send {
+    width: auto;
+    height: auto;
+    padding: 4px 38px 4px 8px;
+    margin-left: auto;
+    border-radius: 16px;
+    color: #FFF;
+    font-size: 1.2rem;
+    line-height: 2;
+    font-weight: 700;
+    position: relative; }
+    .modal__send:after {
+      content: "";
+      background-image: url(./static/more-3.svg);
+      width: 8px;
+      height: 10px;
+      position: absolute;
+      right: 18px;
+      top: 11px; }
+    .modal__send:hover:after {
+      animation-name: moreArrow;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear; }
+
+.disclaimer {
+  font-size: 1.4rem;
+  line-height: calc(16 / 14);
+  color: #7E7E82; }
+  .disclaimer__link {
+    color: #FF3E79; }
+
+@media (min-width: 425px) {
+  .modal__body {
+    max-width: 320px;
+    box-shadow: -2px 0px 4px rgba(69, 79, 126, 0.02), 16px 0px 52px rgba(14, 24, 80, 0.2); } }
+
+@media (min-width: 768px) {
+  .modal__close {
+    position: absolute;
+    left: -73px; }
+  .modal__title:before {
+    top: 20px; } }
+
 *,
 *::before,
 *::after {
@@ -868,10 +959,14 @@ html {
 body {
   font-family: "TT Lakes", sans-serif;
   font-size: 1.6rem;
-  background-color: #F8F8F8; }
+  background-color: #F8F8F8;
+  overflow-x: hidden; }
 
 .container {
   padding: 0 16px; }
+
+.wrapper {
+  overflow: hidden; }
 
 .link-hover {
   position: relative; }
