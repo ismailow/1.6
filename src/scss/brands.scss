@@ -1,12 +1,14 @@
 .brands {
   padding-top: 40px;
   position: relative;
-  padding-bottom: 32px;
+  overflow: hidden;
   &__title {
     margin-bottom: 16px;
   }
   &__slider {
     margin-right: -16px !important;
+    margin-top: 24px;
+    position: relative;
     &:after {
       content: "";
       width: 24px;
@@ -20,6 +22,7 @@
   }
   &__list {
     margin-bottom: 16px;
+    //overflow: hidden;
   }
   &__item {
     list-style: none;
@@ -37,27 +40,6 @@
   }
 }
 
-.swiper-pagination {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-left: -16px;
-  margin-bottom: 24px;
-  &-bullet {
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: #DDDDDD;
-    &-active {
-      background-color: #B5B6BC;
-    }
-  }
-  @media (min-width: 768px) {
-    display: none;
-  }
-}
-
 @media (min-width: 768px) {
   .brands {
     &__slider {
@@ -70,8 +52,9 @@
       display: flex;
       gap: 16px 24px;
       flex-wrap: wrap;
-      max-height: 160px;
-      transition: .3s linear;
+      overflow: hidden;
+      max-height: 165px;
+      transition: max-height .3s linear;
       &--active {
         max-height: 100%;
       }

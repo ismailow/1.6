@@ -12990,21 +12990,24 @@ var Burger = function Burger() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/style.scss */ "./src/scss/style.scss");
-/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./burger */ "./src/js/burger.js");
-/* harmony import */ var _more__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./more */ "./src/js/more.js");
-/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sidebar */ "./src/js/sidebar.js");
-/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
+/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger */ "./src/js/burger.js");
+/* harmony import */ var _more__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./more */ "./src/js/more.js");
+/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sidebar */ "./src/js/sidebar.js");
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
+/* harmony import */ var swiper_swiper_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! swiper/swiper.scss */ "./node_modules/swiper/swiper.scss");
+/* harmony import */ var swiper_swiper_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(swiper_swiper_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../scss/style.scss */ "./src/scss/style.scss");
+/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
 
-Object(_burger__WEBPACK_IMPORTED_MODULE_1__["Burger"])();
-Object(_more__WEBPACK_IMPORTED_MODULE_2__["showMore"])();
-Object(_sidebar__WEBPACK_IMPORTED_MODULE_3__["sidebar"])();
-Object(_slider__WEBPACK_IMPORTED_MODULE_4__["slider"])();
+
+Object(_burger__WEBPACK_IMPORTED_MODULE_0__["Burger"])();
+Object(_more__WEBPACK_IMPORTED_MODULE_1__["showMore"])();
+Object(_sidebar__WEBPACK_IMPORTED_MODULE_2__["sidebar"])();
+Object(_slider__WEBPACK_IMPORTED_MODULE_3__["slider"])();
 
 /***/ }),
 
@@ -13085,47 +13088,44 @@ var sidebar = function sidebar() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "slider", function() { return slider; });
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
-/* harmony import */ var swiper_swiper_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/swiper.scss */ "./node_modules/swiper/swiper.scss");
-/* harmony import */ var swiper_swiper_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(swiper_swiper_scss__WEBPACK_IMPORTED_MODULE_1__);
-
 
 var slider = function slider() {
-  // const swiper = new Swiper('.swiper', {
-  //   width: 240,
-  //   slidesPerView: 1,
-  //   spaceBetween: 16,
-  //   modules: [Pagination],
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //   },
-  // })
-  var swiper;
+  var sliderOptions = function sliderOptions(width, pagination) {
+    return {
+      width: width,
+      slidesPerView: 1,
+      spaceBetween: 16,
+      modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"]],
+      pagination: {
+        el: pagination
+      },
+      breakpoints: {
+        560: {
+          slidesPerGroup: 2
+        }
+      }
+    };
+  };
+
+  var brandsSlider;
+  var technicsSlider;
+  var pricesSlider;
   var init = false;
 
   var loadSlider = function loadSlider() {
     var windowWidth = window.innerWidth;
-    console.log(windowWidth);
 
     if (windowWidth < 768) {
       if (!init) {
         init = true;
-        swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper', {
-          width: 240,
-          slidesPerView: 1,
-          spaceBetween: 16,
-          modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"]],
-          pagination: {
-            el: '.swiper-pagination'
-          },
-          breakpoints: {
-            560: {
-              slidesPerGroup: 2
-            }
-          }
-        });
+        brandsSlider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.brands__slider', sliderOptions(240, '.brands__pagination'));
+        technicsSlider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.technics__slider', sliderOptions(240, '.technics__pagination'));
+        pricesSlider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.prices__slider', sliderOptions(260, '.prices__pagination'));
       }
     } else if (init) {
-      swiper.destroy();
+      brandsSlider.destroy();
+      technicsSlider.destroy();
+      pricesSlider.destroy();
       init = false;
     }
   };
