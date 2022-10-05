@@ -18,7 +18,7 @@
   &__list {
     display: flex;
     gap: 3px;
-    margin-right: -776px;
+    margin-right: -3000px;
     width: 100%;
     margin-bottom: 24px;
     overflow-x: auto;
@@ -150,6 +150,10 @@
       &:before {
         display: none;
       }
+    }
+    &__list {
+      margin-right: 0;
+      flex-wrap: wrap;
     }
   }
 }

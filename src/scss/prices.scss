@@ -72,9 +72,10 @@
     font-size: 1.4rem;
     line-height: calc(16 / 14);
     margin-bottom: 4px;
+    flex-grow: 1;
   }
   &__space {
-    flex-grow: 1;
+
   }
   &__text {
     font-size: 1.4rem;

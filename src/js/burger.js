@@ -1,24 +1,31 @@
-import { stopScroll } from './stopScroll';
+import { toggleScroll } from './toggleScroll';
 
-export const Burger = () => {
+export const burger = () => {
   const openBurgerBtn = document.querySelector('.header__burger');
   const closeBurgerBtn = document.querySelector('.aside__close');
   const sidebar = document.querySelector('.sidebar');
 
   openBurgerBtn.addEventListener('click', () => {
     sidebar.classList.add('sidebar--active');
-    stopScroll();
+    toggleScroll();
   });
 
   closeBurgerBtn.addEventListener('click', () => {
     sidebar.classList.remove('sidebar--active');
-    stopScroll();
+    toggleScroll();
   });
 
   sidebar.addEventListener('click', (event) => {
     if (!event.target.closest('aside')) {
       sidebar.classList.remove('sidebar--active');
-      stopScroll();
+      toggleScroll();
     }
   });
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && sidebar.classList.contains('sidebar--active')) {
+      sidebar.classList.remove('sidebar--active');
+      toggleScroll();
+    }
+  })
 };

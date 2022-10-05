@@ -1,4 +1,4 @@
-import { Burger } from './burger';
+import { burger } from './burger';
 import { showMore } from './more';
 import { sidebar } from './sidebar';
 import { slider } from './slider';
@@ -6,7 +6,7 @@ import { modal } from './modal'
 import 'swiper/swiper.scss';
 import '../scss/style.scss';
 
-Burger();
+burger();
 showMore();
 sidebar();
 slider();

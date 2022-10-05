@@ -1,4 +1,4 @@
-import { stopScroll } from './stopScroll';
+import { toggleScroll } from './toggleScroll';
 
 export const modal = () => {
   const modal = document.querySelectorAll('.modal');
@@ -12,7 +12,8 @@ export const modal = () => {
         const showModalAttr = btn.getAttribute('data-modal');
         const showModal = document.querySelector(`.${showModalAttr}`);
         showModal.classList.add('modal--active');
-        stopScroll();
+        showModal.querySelector('.modal__input').focus();
+        toggleScroll();
 
         if (sidebar.classList.contains('sidebar--active')) {
           sidebar.classList.remove('sidebar--active');
@@ -24,7 +25,7 @@ export const modal = () => {
   closeModalBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       btn.parentNode.parentNode.classList.remove('modal--active');
-      stopScroll();
+      toggleScroll();
     });
   });
 
@@ -32,8 +33,19 @@ export const modal = () => {
     modal.addEventListener('click', (event) => {
       if (!event.target.closest('.modal__body')) {
         modal.classList.remove('modal--active');
-        stopScroll();
+        toggleScroll();
       }
     });
   });
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      modal.forEach(item => {
+        if (item.classList.contains('modal--active')) {
+          item.classList.remove('modal--active');
+          toggleScroll();
+        }
+      })
+    }
+  })
 }
